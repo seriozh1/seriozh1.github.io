@@ -127,6 +127,12 @@ defaults:
       layout: default
       author_profile: true
 
+  - scope:
+      path: ""
+    values:
+      title: "Sergei Smirnov – Doctoral Researcher"
+      description: "Academic homepage of Sergei Smirnov, PhD Researcher at the University of Helsinki working on foundation models, LLMs, cognitive modeling, and human-AI interaction."
+
 
 # Sass/SCSS
 sass:
