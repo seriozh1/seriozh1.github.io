@@ -8,7 +8,7 @@
 # Site Settings
 title                    : "Sergei Smirnov"
 description              : "Doctoral Researcher at the University of Helsinki working on Foundation Models for Multimodal Human Activity Understanding. "
-repository               : "RayeRen/acad-homepage.github.io"
+repository               : "seriozh1/seriozh1.github.io"
 google_scholar_stats_use_cdn : true
 
 # google analytics
@@ -22,12 +22,12 @@ baidu_site_verification  :  # get baidu_site_verification from https://ziyuan.ba
 # Site Author
 author:
   name             : "Sergei Smirnov"
-  avatar           : "images/android-chrome-512x512.png"
-  bio              : "Lorem ipsum College"
-  location         : "Beijing, China"
-  employer         :
+  avatar           : "images/profile.jpeg"
+  bio              : "Doctoral Researcher at the University of Helsinki"
+  location         : "Helsinki, Finland"
+  employer         : "University of Helsinki"
   pubmed           : 
-  googlescholar    : "https://scholar.google.com/citations?user=YOUR_GOOGLE_SCHOLAR_ID"
+  googlescholar    : "https://scholar.google.com/citations?user=WwXJ0vgAAAAJ&hl=en"
   email            : "mg1sergey@gmail.com"
   researchgate     :  # e.g., "https://www.researchgate.net/profile/yourprofile"
   uri              :
@@ -37,21 +37,21 @@ author:
   flickr           :
   facebook         :
   foursquare       :
-  github           : # e.g., "github username"
+  github           : "seriozh1"
   google_plus      :
   keybase          :
   instagram        :
   impactstory      : # e.g., "https://profiles.impactstory.org/u/xxxx-xxxx-xxxx-xxxx"
   lastfm           :
-  linkedin         : # e.g., "linkedin username"
+  linkedin         : "seriozh1"
   dblp             : # e.g., "https://dblp.org/pid/xx/xxxx.html"
-  orcid            : # e.g., "https://orcid.org/xxxx"
+  orcid            : "https://orcid.org/0009-0002-4404-1499"
   pinterest        :
   soundcloud       :
   stackoverflow    : # http://stackoverflow.com/users/123456/username
   steam            :
   tumblr           :
-  twitter          : 
+  twitter          : "seriozh1"
   vine             :
   weibo            :
   xing             :
@@ -136,7 +136,7 @@ sass:
 
 # Outputting
 permalink: /:categories/:title/
-timezone: Asia/Shanghai # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+timezone: Europe/Helsinki # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 
 # Plugins
