@@ -17,11 +17,13 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
+<!--
 I’m **Sergei Smirnov**, a Doctoral Researcher at the University of Helsinki working on Foundation Models for Multimodal Human Activity Understanding. My research focuses on bridging physical and cognitive dimensions of human behavior by leveraging large language models and video-language models.
 
 My academic background spans machine learning, human-AI interaction, and complex systems, with a strong interest in applications that bring AI into alignment with human values and intentions. I’ve worked on both DNA-level modeling and LLM-based embodied agents, and I’m passionate about advancing cooperative, explainable, and robust AI.
 
 I'm currently exploring foundation models for **cognitive modeling**, with recent experiments leveraging datasets like Social-IQ 2.0 and multimodal agents such as **Video-LLaMA**.
+-->
 
 <!-- <a href='https://scholar.google.com/citations?user=WwXJ0vgAAAAJ'>
   <img src="https://img.shields.io/endpoint?url={{ url | url_encode }}&logo=Google%20Scholar&labelColor=f6f6f6&color=9cf&style=flat&label=citations">
