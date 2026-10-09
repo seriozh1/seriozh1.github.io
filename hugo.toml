@@ -1,0 +1,48 @@
+# The deploy workflow overrides baseURL with the real Pages URL, so this only
+# matters for local builds. Update it when you add a custom domain.
+baseURL = "https://seriozh1.github.io/"
+locale = "en-US"
+title = "Sergei Smirnov"
+theme = "terminal"
+copyright = "© Sergei Smirnov"
+
+enableRobotsTXT = true
+
+[pagination]
+  pagerSize = 10
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+[markup.highlight]
+  noClasses = false
+
+[params]
+  # Section whose pages get prev/next links (content/writing/).
+  contentTypeName = "writing"
+  centerTheme = true
+  fullWidthTheme = false
+  showMenuItems = 4
+  showLastUpdated = false
+  readMore = "Read more"
+  subtitle = "Research engineer working on AI safety"
+  keywords = "AI safety, machine learning, research engineering"
+  dateFormat = "2006-01-02"
+
+  [params.logo]
+    logoText = "Sergei Smirnov"
+    logoHomeLink = "/"
+
+[menus]
+  [[menus.main]]
+    name = "Projects"
+    url = "/projects/"
+    weight = 10
+  [[menus.main]]
+    name = "Publications"
+    url = "/publications/"
+    weight = 20
+  [[menus.main]]
+    name = "Writing"
+    url = "/writing/"
+    weight = 30

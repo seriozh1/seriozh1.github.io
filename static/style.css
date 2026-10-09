@@ -1,0 +1,175 @@
+/*
+ * Site style overrides for the Terminal theme.
+ * Loaded after the theme's CSS, so anything here wins.
+ * Colours: change the three variables in each block below.
+ */
+
+/* Light mode (default) */
+:root {
+  --background: #fbfaf8;
+  --foreground: #1f2328;
+  --accent: #2b5797;
+  --muted: color-mix(in srgb, var(--foreground) 60%, transparent);
+  --rule: color-mix(in srgb, var(--foreground) 12%, transparent);
+  --font-size: 0.95rem;
+  --line-height: 1.7em;
+  color-scheme: light;
+}
+
+/* Dark mode, following the visitor's system setting */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #16181d;
+    --foreground: #d9dce1;
+    --accent: #7fa7dc;
+    color-scheme: dark;
+  }
+}
+
+/* Layout: narrower single column for comfortable reading */
+.container {
+  max-width: 760px;
+}
+
+/* No programming ligatures: show -> and != as typed */
+body,
+code,
+pre {
+  font-variant-ligatures: none;
+}
+
+/* Header: plain name instead of a filled block and dashed rule */
+.logo {
+  background: none;
+  color: var(--foreground);
+  padding: 0;
+}
+
+.header__logo::after {
+  display: none;
+}
+
+.header {
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.navigation-menu {
+  margin: 14px 0 0;
+}
+
+.navigation-menu a,
+.menu__trigger {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.navigation-menu a:hover {
+  color: var(--accent);
+}
+
+.menu__dropdown {
+  border: 1px solid var(--rule);
+}
+
+/* Headings and titles: foreground colour, no dotted underline */
+.post-title {
+  color: var(--foreground);
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.post-title::after {
+  display: none;
+}
+
+.post-title a {
+  color: inherit;
+}
+
+.post-title a:hover {
+  color: var(--accent);
+}
+
+h1, h2, h3, h4 {
+  font-weight: 600;
+}
+
+/* Links: accent colour, quiet underline */
+a {
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+
+.post-meta {
+  color: var(--muted);
+}
+
+/* Blockquotes: simple left rule instead of a ">" prompt */
+blockquote {
+  border-top: none;
+  border-bottom: none;
+  border-left: 2px solid var(--accent);
+  padding: 4px 0 4px 20px;
+}
+
+blockquote::before {
+  display: none;
+}
+
+/* List bullets: keep the dash, but muted */
+.post ul li:not(:empty)::before {
+  color: var(--muted);
+}
+
+/* Code: inline code in foreground on a light tint, not accent-coloured */
+code {
+  color: var(--foreground);
+  background: color-mix(in srgb, var(--foreground) 6%, transparent);
+  padding: 1px 4px;
+}
+
+pre code {
+  background: none;
+  padding: 0;
+}
+
+.highlight,
+pre {
+  border-color: var(--rule);
+}
+
+/* Tables */
+table,
+th,
+td {
+  border: none;
+}
+
+th,
+td {
+  padding: 6px 16px 6px 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+th {
+  text-transform: none;
+  border-bottom-color: var(--muted);
+}
+
+/* Buttons such as "Read more" */
+.button.inline,
+.read-more {
+  padding: 0;
+  background: none;
+  color: var(--accent);
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--rule);
+}
+
+.footer {
+  font-size: 0.85em;
+}
