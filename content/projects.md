@@ -8,7 +8,7 @@ For each project: the question, what you did, the result, and links.
 Lead with the most relevant ones for the roles you're applying to.
 -->
 
-### [Project name] (2026)
+## [Project name] (2026)
 
 - **Question:** What were you trying to find out?
 - **What I did:** The method, the tools, and the scale (models, compute, data).
@@ -16,7 +16,7 @@ Lead with the most relevant ones for the roles you're applying to.
 
 [code](https://github.com/seriozh1) · [write-up](/writing/example-post/)
 
-### [Project name] (2025)
+## [Project name] (2025)
 
 - **Question:** ...
 - **What I did:** ...

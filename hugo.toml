@@ -4,7 +4,8 @@ baseURL = "https://seriozh1.github.io/"
 locale = "en-US"
 title = "Sergei Smirnov"
 theme = "terminal"
-copyright = "© Sergei Smirnov"
+# The hex string decodes to "aligned" (hover shows it).
+copyright = '© Sergei Smirnov <span class="hexdump" title="aligned">61 6c 69 67 6e 65 64</span>'
 
 enableRobotsTXT = true
 
@@ -25,7 +26,7 @@ enableRobotsTXT = true
   showMenuItems = 4
   showLastUpdated = false
   readMore = "Read more"
-  subtitle = "Research engineer working on AI safety"
+  subtitle = "research engineer · ai safety"
   keywords = "AI safety, machine learning, research engineering"
   dateFormat = "2006-01-02"
 
@@ -35,14 +36,14 @@ enableRobotsTXT = true
 
 [menus]
   [[menus.main]]
-    name = "Projects"
+    name = "projects"
     url = "/projects/"
     weight = 10
   [[menus.main]]
-    name = "Publications"
+    name = "publications"
     url = "/publications/"
     weight = 20
   [[menus.main]]
-    name = "Writing"
+    name = "writing"
     url = "/writing/"
     weight = 30

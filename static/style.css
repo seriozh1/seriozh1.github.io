@@ -1,34 +1,37 @@
 /*
- * Site style overrides for the Terminal theme.
+ * Site style overrides for the Terminal theme, after Gibson's Neuromancer:
+ * ICE cyan on a "dead channel" black, faint cyberspace grid, hex-indexed sections.
  * Loaded after the theme's CSS, so anything here wins.
- * Colours: change the three variables in each block below.
+ * Colours: change the three variables in :root below.
  */
 
-/* Light mode (default) */
+/* Dark only, on screen. Printing switches to black on white (see the end of this file). */
 :root {
-  --background: #fbfaf8;
-  --foreground: #1f2328;
-  --accent: #2b5797;
+  --background: #0b0f14;
+  --foreground: #d3dde6;
+  --accent: #5ccfe6;
   --muted: color-mix(in srgb, var(--foreground) 60%, transparent);
   --rule: color-mix(in srgb, var(--foreground) 12%, transparent);
+  --grid: color-mix(in srgb, var(--accent) 4%, transparent);
   --font-size: 0.95rem;
   --line-height: 1.7em;
-  color-scheme: light;
+  color-scheme: dark;
 }
 
-/* Dark mode, following the visitor's system setting */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #16181d;
-    --foreground: #d9dce1;
-    --accent: #7fa7dc;
-    color-scheme: dark;
-  }
+/* Two-digit lowercase hex, used as 0x01, 0x02, ... */
+@counter-style hex {
+  system: numeric;
+  symbols: "0" "1" "2" "3" "4" "5" "6" "7" "8" "9" "a" "b" "c" "d" "e" "f";
+  pad: 2 "0";
 }
 
-/* Layout: narrower single column for comfortable reading */
-.container {
-  max-width: 760px;
+/* Cyberspace grid: very faint, fixed behind the content */
+body {
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-attachment: fixed;
 }
 
 /* No programming ligatures: show -> and != as typed */
@@ -38,41 +41,101 @@ pre {
   font-variant-ligatures: none;
 }
 
-/* Header: plain name instead of a filled block and dashed rule */
-.logo {
-  background: none;
-  color: var(--foreground);
-  padding: 0;
+/* Layout: narrower single column for comfortable reading */
+.container {
+  max-width: 760px;
+}
+
+/* Header: name in accent, muted tagline, thin rule */
+.header {
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.header__logo {
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: 14px;
 }
 
 .header__logo::after {
   display: none;
 }
 
-.header {
-  padding-bottom: 8px;
-  border-bottom: 1px solid var(--rule);
+.logo {
+  background: none;
+  color: var(--accent);
+  padding: 0;
+  white-space: pre;
 }
 
+.tagline {
+  color: var(--muted);
+  font-size: 0.9em;
+}
+
+/* Menu: hex-indexed links */
 .navigation-menu {
   margin: 14px 0 0;
+}
+
+.navigation-menu__inner,
+.menu__dropdown {
+  counter-reset: nav;
+}
+
+.navigation-menu__inner > li,
+.menu__dropdown > li {
+  counter-increment: nav;
+}
+
+.navigation-menu__inner > li > a::before,
+.menu__dropdown > li > a::before {
+  content: "0x" counter(nav, hex) " ";
+  color: var(--accent);
+  opacity: 0.7;
 }
 
 .navigation-menu a,
 .menu__trigger {
   color: var(--muted);
   text-decoration: none;
+  white-space: pre;
 }
 
-.navigation-menu a:hover {
-  color: var(--accent);
+.navigation-menu a:hover,
+.navigation-menu a:focus-visible {
+  color: var(--foreground);
 }
 
 .menu__dropdown {
   border: 1px solid var(--rule);
 }
 
-/* Headings and titles: foreground colour, no dotted underline */
+/* Section headings: hex-indexed h2s on every page */
+.post-content,
+.index-content {
+  counter-reset: section;
+}
+
+.post-content h2,
+.index-content h2 {
+  counter-increment: section;
+}
+
+.post-content h2::before,
+.index-content h2::before {
+  content: "0x" counter(section, hex);
+  color: var(--accent);
+  font-weight: 400;
+  margin-right: 0.75em;
+}
+
+h1, h2, h3, h4 {
+  font-weight: 600;
+}
+
+/* Titles: foreground colour, no dotted underline */
 .post-title {
   color: var(--foreground);
   border-bottom: none;
@@ -85,14 +148,11 @@ pre {
 
 .post-title a {
   color: inherit;
+  white-space: pre-wrap;
 }
 
 .post-title a:hover {
   color: var(--accent);
-}
-
-h1, h2, h3, h4 {
-  font-weight: 600;
 }
 
 /* Links: accent colour, quiet underline */
@@ -137,6 +197,7 @@ pre code {
 .highlight,
 pre {
   border-color: var(--rule);
+  background: var(--background);
 }
 
 /* Tables */
@@ -170,6 +231,74 @@ hr {
   border-top: 1px solid var(--rule);
 }
 
+/* Footer, with the hex accent from hugo.toml's copyright */
 .footer {
   font-size: 0.85em;
+}
+
+.hexdump {
+  margin-left: 10px;
+  color: var(--accent);
+  letter-spacing: 0.05em;
+  cursor: help;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--accent) 30%, transparent);
+}
+
+/* Print / save as PDF: black on white, no grid, no navigation, link targets shown */
+@media print {
+  :root {
+    --background: #fff;
+    --foreground: #000;
+    --accent: #0b6e80;
+    --grid: transparent;
+    color-scheme: light;
+  }
+
+  body {
+    background: #fff;
+    font-size: 11pt;
+  }
+
+  .header {
+    display: block;
+    border-bottom: 1px solid #999;
+  }
+
+  .navigation-menu,
+  .menu,
+  .menu--mobile,
+  .footer,
+  .code-title button,
+  .pagination {
+    display: none !important;
+  }
+
+  .container {
+    max-width: none;
+    padding: 0;
+  }
+
+  .post-content a[href^="http"]::after,
+  .index-content a[href^="http"]::after,
+  .post-content a[href^="mailto:"]::after,
+  .index-content a[href^="mailto:"]::after {
+    content: " (" attr(href) ")";
+    color: #555;
+    font-size: 0.85em;
+    word-break: break-all;
+  }
+
+  h2,
+  h3 {
+    break-after: avoid;
+  }
+
+  pre,
+  table,
+  blockquote {
+    break-inside: avoid;
+  }
 }

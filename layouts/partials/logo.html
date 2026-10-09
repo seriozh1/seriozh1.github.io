@@ -1,0 +1,7 @@
+{{/* Site name (decrypts on load/hover via static/js/ice.js) plus muted tagline from params.subtitle. */}}
+<a href="{{ $.Site.Params.Logo.LogoHomeLink | default "/" }}">
+  <div class="logo">
+    <span data-decrypt>{{ $.Site.Params.Logo.logoText }}</span>
+  </div>
+</a>
+{{ with $.Site.Params.subtitle }}<span class="tagline">// {{ . }}</span>{{ end }}
