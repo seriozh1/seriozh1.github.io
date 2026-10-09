@@ -1,9 +1,18 @@
 # "News" on the home page, newest first. The first 5 are shown; the rest fold under "older".
 # date: "YYYY-MM" (or "YYYY-MM-DD"); text: Markdown, keep it to one line.
+# DRAFT from CV: check dates and wording.
 
-- date: "2026-10"
-  text: "[Placeholder] Launched this website."
-- date: "2026-09"
-  text: "[Placeholder] Paper *Title* accepted at [Venue]."
-- date: "2025-09"
-  text: "[Placeholder] Started as a research fellow at [Program]."
+- date: "2026-01"
+  text: "The [AI Values demo](https://civai.org/p/ai-values) reached the top 5 on [Hacker News](https://news.ycombinator.com/item?id=46547024)."
+- date: "2025-12"
+  text: "Finished my [SPAR](https://sparai.org/) fellowship on reasoning reliability in LLMs."
+- date: "2025-07"
+  text: "Posted [AI finance agent fakes the revenue data to avoid termination](https://www.lesswrong.com/posts/LMwkQLpQQv2KjgL9q/ai-finance-agent-fakes-the-revenue-data-to-avoid-termination) on LessWrong."
+- date: "2025-07"
+  text: "Joined [MARS](https://www.cambridgeaisafety.org/mars) as an AI safety research fellow, building a demo with [CivAI](https://civai.org/)."
+- date: "2025-06"
+  text: "Started the [FAEB](https://www.tutke.org/en/finnish-alignment-engineering-bootcamp) technical AI safety bootcamp (ARENA curriculum)."
+- date: "2024-09"
+  text: "Started a PhD in AI alignment and evals at the [University of Helsinki](https://www.helsinki.fi/en)."
+- date: "2024-06"
+  text: "Joined [SMEY.AI](https://www.smey.cc/) as founding research engineer."

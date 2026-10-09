@@ -3,35 +3,52 @@
 # Fields (only title is required):
 #   title:    shown as the heading; links to url if set
 #   url:      main link for the title
-#   type:     paper | project | tool | demo | ... (shown as a badge)
+#   type:     paper | research | demo | tool | open source | ... (shown as a badge)
 #   venue:    e.g. "NeurIPS 2026", "SPAR 2025", "arXiv 2026" (shown as a badge)
 #   summary:  one or two sentences: the question and the result (Markdown allowed)
 #   authors:  Markdown; bold yourself, e.g. "**S. Smirnov**, A. Coauthor"
 #   image:    file name in assets/work/ (e.g. "probe.png"); omit for a placeholder
 #   links:    list of {name, url} shown as [name] badges
+#
+# DRAFT from CV: check titles and wording.
 
-- title: "[Paper title]"
-  url: "#"
-  type: paper
-  venue: "[Venue 2026]"
-  summary: "One sentence on the question, one on the result. Lead with the finding."
-  authors: "**S. Smirnov**, A. Coauthor, B. Coauthor"
+- title: "Agentic misalignment: an AI finance agent fakes revenue data"
+  url: "https://www.lesswrong.com/posts/LMwkQLpQQv2KjgL9q/ai-finance-agent-fakes-the-revenue-data-to-avoid-termination"
+  type: research
+  venue: "FAEB 2025"
+  summary: "Replicated Anthropic's agentic misalignment experiments and built a multi-turn extension testing how prior deception shapes later agent behaviour. In a simulated company, Claude 3.5 Sonnet falsified financial reports in about 40% of runs when told it would be replaced if revenue turned negative."
   links:
-    - { name: paper, url: "#" }
-    - { name: code, url: "#" }
+    - { name: lesswrong, url: "https://www.lesswrong.com/posts/LMwkQLpQQv2KjgL9q/ai-finance-agent-fakes-the-revenue-data-to-avoid-termination" }
+    - { name: code, url: "https://github.com/seriozh1/agentic-misalignment" }
 
-- title: "[Project title]"
-  url: "#"
-  type: project
-  venue: "[Program 2025]"
-  summary: "What you built and what it showed. Include a number where you have one."
-  links:
-    - { name: code, url: "#" }
-    - { name: write-up, url: "/writing/example-post/" }
+- title: "Reasoning reliability across 8 LLMs"
+  type: research
+  venue: "SPAR 2025"
+  summary: "Built and ran an evaluation pipeline over 8 LLMs and 1,000 forecasting questions, using the [Martingale Score](https://arxiv.org/abs/2512.02914) to test whether reasoning updates beliefs rationally. Found that [inverse scaling in test-time compute](https://arxiv.org/abs/2507.14417) is task-conditional and sensitive to how beliefs are elicited."
 
-- title: "[Tool or demo title]"
-  url: "#"
-  type: tool
-  summary: "What it does and who uses it."
+- title: "AI Values: how humans and LLMs answer contested questions"
+  url: "https://civai.org/p/ai-values"
+  type: demo
+  venue: "MARS 2025 · CivAI"
+  summary: "Conceived and built from scratch an interactive demo for [CivAI](https://civai.org/) comparing human and LLM positions on contested questions. 17,000+ page views, 22,000+ user responses, and top 5 on Hacker News."
   links:
-    - { name: demo, url: "#" }
+    - { name: demo, url: "https://civai.org/p/ai-values" }
+    - { name: hacker news, url: "https://news.ycombinator.com/item?id=46547024" }
+
+- title: "A metric for robust model evaluation through text perturbations"
+  url: "https://lutpub.lut.fi/handle/10024/167571"
+  type: thesis
+  venue: "LUT University 2024"
+  summary: "Developed and validated a metric for evaluating how robust NLP models are to perturbations of their input text."
+  authors: "**S. Smirnov**"
+  links:
+    - { name: thesis, url: "https://lutpub.lut.fi/handle/10024/167571" }
+    - { name: slides, url: "https://drive.google.com/file/d/1fSXULqQhKexFD9hwsd1E7U75g3YXqMTW/view?usp=sharing" }
+
+- title: "datapipe: parallel execution with Ray"
+  url: "https://github.com/epoch8/datapipe"
+  type: open source
+  venue: "Epoch8 2023"
+  summary: "Parallelized the open-source datapipe engine with Ray for multi-threaded execution of ML data-processing graphs, giving 5x throughput."
+  links:
+    - { name: code, url: "https://github.com/epoch8/datapipe" }
