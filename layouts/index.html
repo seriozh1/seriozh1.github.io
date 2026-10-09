@@ -1,6 +1,104 @@
-{{/* Home page: render content/_index.md only (the theme's default also lists posts). */}}
+{{/*
+  One-page home. Content comes from:
+    content/_index.md  -> about
+    data/links.yaml    -> links under your name
+    data/work.yaml     -> selected work (thumbnails from assets/work/)
+    data/news.yaml     -> news
+    content/writing/   -> latest posts
+*/}}
 {{ define "main" }}
-  <div class="index-content">
+<div class="home">
+
+  <section class="hero">
+    {{ with resources.Get "images/photo.jpg" }}
+      {{ $img := .Fill "240x240 Center q85 webp" }}
+      <img class="hero__photo" src="{{ $img.RelPermalink }}" width="120" height="120" alt="Photo of {{ site.Title }}">
+    {{ end }}
+    <div class="hero__text">
+      <h1 class="hero__name"><span data-decrypt>{{ site.Title }}</span></h1>
+      {{ with site.Params.subtitle }}<p class="hero__tagline">// {{ . }}</p>{{ end }}
+      <ul class="hero__links">
+        {{ range site.Data.links }}
+          <li><a href="{{ .url }}"{{ if hasPrefix .url "http" }} rel="me noopener" target="_blank"{{ end }}>{{ .name }}</a></li>
+        {{ end }}
+      </ul>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2>about</h2>
     {{ .Content }}
-  </div>
+  </section>
+
+  {{ with site.Data.work }}
+  <section id="work">
+    <h2>selected work</h2>
+    {{ range . }}
+      <article class="work">
+        <div class="work__thumb">
+          {{ $img := "" }}
+          {{ with .image }}{{ $img = resources.Get (printf "work/%s" .) }}{{ end }}
+          {{ with $img }}
+            {{ $t := .Fill "320x220 Center q85 webp" }}
+            <img src="{{ $t.RelPermalink }}" width="160" height="110" alt="" loading="lazy">
+          {{ else }}
+            <span class="work__placeholder">{{ .type | default "work" }}</span>
+          {{ end }}
+        </div>
+        <div class="work__body">
+          <h3 class="work__title">
+            {{ if .url }}<a href="{{ .url }}">{{ .title }}</a>{{ else }}{{ .title }}{{ end }}
+          </h3>
+          <div class="work__badges">
+            {{ with .type }}<span class="badge">{{ . }}</span>{{ end }}
+            {{ with .venue }}<span class="badge badge--venue">{{ . }}</span>{{ end }}
+          </div>
+          {{ with .summary }}<p class="work__summary">{{ . | markdownify }}</p>{{ end }}
+          {{ with .authors }}<p class="work__authors">{{ . | markdownify }}</p>{{ end }}
+          {{ with .links }}
+            <ul class="links">
+              {{ range . }}<li><a href="{{ .url }}">{{ .name }}</a></li>{{ end }}
+            </ul>
+          {{ end }}
+        </div>
+      </article>
+    {{ end }}
+  </section>
+  {{ end }}
+
+  {{ with site.Data.news }}
+  <section id="news">
+    <h2>news</h2>
+    <ul class="news">
+      {{ range first 5 . }}
+        <li><time>{{ .date }}</time><span>{{ .text | markdownify }}</span></li>
+      {{ end }}
+    </ul>
+    {{ if gt (len .) 5 }}
+      <details class="news-older">
+        <summary>older</summary>
+        <ul class="news">
+          {{ range after 5 . }}
+            <li><time>{{ .date }}</time><span>{{ .text | markdownify }}</span></li>
+          {{ end }}
+        </ul>
+      </details>
+    {{ end }}
+  </section>
+  {{ end }}
+
+  {{ $posts := where site.RegularPages "Section" "writing" }}
+  {{ with $posts }}
+  <section id="writing">
+    <h2>writing</h2>
+    <ul class="news">
+      {{ range first 5 . }}
+        <li><time>{{ .Date.Format "2006-01" }}</time><span><a href="{{ .RelPermalink }}">{{ .Title }}</a></span></li>
+      {{ end }}
+    </ul>
+    <p><a href="{{ "writing/" | relURL }}">all posts →</a></p>
+  </section>
+  {{ end }}
+
+</div>
 {{ end }}

@@ -1,0 +1,37 @@
+# "Selected work" on the home page: papers, projects and tools, in display order.
+#
+# Fields (only title is required):
+#   title:    shown as the heading; links to url if set
+#   url:      main link for the title
+#   type:     paper | project | tool | demo | ... (shown as a badge)
+#   venue:    e.g. "NeurIPS 2026", "SPAR 2025", "arXiv 2026" (shown as a badge)
+#   summary:  one or two sentences: the question and the result (Markdown allowed)
+#   authors:  Markdown; bold yourself, e.g. "**S. Smirnov**, A. Coauthor"
+#   image:    file name in assets/work/ (e.g. "probe.png"); omit for a placeholder
+#   links:    list of {name, url} shown as [name] badges
+
+- title: "[Paper title]"
+  url: "#"
+  type: paper
+  venue: "[Venue 2026]"
+  summary: "One sentence on the question, one on the result. Lead with the finding."
+  authors: "**S. Smirnov**, A. Coauthor, B. Coauthor"
+  links:
+    - { name: paper, url: "#" }
+    - { name: code, url: "#" }
+
+- title: "[Project title]"
+  url: "#"
+  type: project
+  venue: "[Program 2025]"
+  summary: "What you built and what it showed. Include a number where you have one."
+  links:
+    - { name: code, url: "#" }
+    - { name: write-up, url: "/writing/example-post/" }
+
+- title: "[Tool or demo title]"
+  url: "#"
+  type: tool
+  summary: "What it does and who uses it."
+  links:
+    - { name: demo, url: "#" }

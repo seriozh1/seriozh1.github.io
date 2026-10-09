@@ -26,7 +26,7 @@ enableRobotsTXT = true
   showMenuItems = 4
   showLastUpdated = false
   readMore = "Read more"
-  subtitle = "research engineer · ai safety"
+  subtitle = "research engineer · ai safety & evals"
   keywords = "AI safety, machine learning, research engineering"
   dateFormat = "2006-01-02"
 
@@ -34,16 +34,21 @@ enableRobotsTXT = true
     logoText = "Sergei Smirnov"
     logoHomeLink = "/"
 
+# Top menu: jump links to the home page sections.
 [menus]
   [[menus.main]]
-    name = "projects"
-    url = "/projects/"
+    name = "about"
+    url = "/#about"
     weight = 10
   [[menus.main]]
-    name = "publications"
-    url = "/publications/"
+    name = "work"
+    url = "/#work"
     weight = 20
   [[menus.main]]
-    name = "writing"
-    url = "/writing/"
+    name = "news"
+    url = "/#news"
     weight = 30
+  [[menus.main]]
+    name = "writing"
+    url = "/#writing"
+    weight = 40

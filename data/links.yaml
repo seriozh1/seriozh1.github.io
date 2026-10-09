@@ -1,0 +1,14 @@
+# Links shown under your name on the home page, in this order.
+- name: email
+  url: mailto:mg1sergey@gmail.com
+- name: github
+  url: https://github.com/seriozh1
+- name: scholar
+  url: https://scholar.google.com/citations?user=WwXJ0vgAAAAJ
+- name: linkedin
+  url: https://www.linkedin.com/in/seriozh1/
+- name: x
+  url: https://x.com/seriozh1
+# Uncomment once static/cv.pdf exists (use a version without your phone number).
+# - name: cv
+#   url: /cv.pdf

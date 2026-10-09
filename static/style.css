@@ -302,3 +302,224 @@ hr {
     break-inside: avoid;
   }
 }
+
+/* ---------- Home page (layouts/index.html) ---------- */
+
+.home {
+  counter-reset: section;
+}
+
+.home h2 {
+  counter-increment: section;
+  scroll-margin-top: 20px;
+}
+
+.home h2::before {
+  content: "0x" counter(section, hex);
+  color: var(--accent);
+  font-weight: 400;
+  margin-right: 0.75em;
+}
+
+.home section {
+  margin-bottom: 50px;
+}
+
+/* Hero: photo, name, tagline, links */
+.hero {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  margin: 30px 0 50px;
+}
+
+.hero__photo {
+  width: 120px;
+  height: 120px;
+  flex: 0 0 auto;
+  margin: 0;
+  border: 1px solid color-mix(in srgb, var(--accent) 50%, transparent);
+  padding: 3px;
+}
+
+.hero__name {
+  margin: 0;
+  font-size: calc(var(--font-size) * 1.7);
+  color: var(--accent);
+  white-space: pre;
+}
+
+.hero__tagline {
+  margin: 6px 0 12px;
+  color: var(--muted);
+}
+
+/* Bracketed link lists: [email] [github] ... */
+.hero__links,
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.hero__links li::before,
+.links li::before {
+  content: "[";
+  color: var(--muted);
+}
+
+.hero__links li::after,
+.links li::after {
+  content: "]";
+  color: var(--muted);
+}
+
+.hero__links a,
+.links a {
+  text-decoration: none;
+}
+
+.hero__links a:hover,
+.links a:hover {
+  text-decoration: underline;
+}
+
+/* Selected work cards */
+.work {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 22px;
+  padding: 20px 0;
+  border-top: 1px solid var(--rule);
+}
+
+.work:last-of-type {
+  border-bottom: 1px solid var(--rule);
+}
+
+.work__thumb img,
+.work__placeholder {
+  display: block;
+  width: 160px;
+  height: 110px;
+  margin: 0;
+  object-fit: cover;
+  border: 1px solid var(--rule);
+}
+
+.work__placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: color-mix(in srgb, var(--accent) 60%, transparent);
+  font-size: 0.85em;
+  background:
+    repeating-linear-gradient(45deg, transparent 0 6px, color-mix(in srgb, var(--accent) 6%, transparent) 6px 7px);
+}
+
+.work__title {
+  margin: 0 0 6px;
+  font-size: calc(var(--font-size) * 1.05);
+}
+
+.work__title a {
+  color: var(--foreground);
+  text-decoration: none;
+}
+
+.work__title a:hover {
+  color: var(--accent);
+}
+
+.work__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.badge {
+  font-size: 0.8em;
+  line-height: 1.6;
+  padding: 0 6px;
+  color: var(--accent);
+  border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+}
+
+.badge--venue {
+  color: var(--muted);
+  border-color: var(--rule);
+}
+
+.work__summary,
+.work__authors {
+  margin: 0 0 8px;
+}
+
+.work__authors {
+  color: var(--muted);
+  font-size: 0.9em;
+}
+
+.work__authors strong {
+  color: var(--foreground);
+}
+
+/* News and writing lists: date column + text */
+.news {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.news li {
+  display: grid;
+  grid-template-columns: 6.5em 1fr;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+
+.news time {
+  color: var(--muted);
+}
+
+.news p {
+  margin: 0;
+}
+
+.news-older summary {
+  cursor: pointer;
+  color: var(--muted);
+  margin: 8px 0;
+}
+
+@media (max-width: 684px) {
+  .hero {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+  }
+
+  .work {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .work__thumb img {
+    width: 100%;
+    height: 140px;
+  }
+
+  .work__thumb:has(.work__placeholder) {
+    display: none;
+  }
+
+  .news li {
+    grid-template-columns: 1fr;
+    gap: 0;
+    margin-bottom: 12px;
+  }
+}

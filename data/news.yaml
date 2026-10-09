@@ -1,0 +1,9 @@
+# "News" on the home page, newest first. The first 5 are shown; the rest fold under "older".
+# date: "YYYY-MM" (or "YYYY-MM-DD"); text: Markdown, keep it to one line.
+
+- date: "2026-10"
+  text: "[Placeholder] Launched this website."
+- date: "2026-09"
+  text: "[Placeholder] Paper *Title* accepted at [Venue]."
+- date: "2025-09"
+  text: "[Placeholder] Started as a research fellow at [Program]."
