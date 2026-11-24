@@ -22,7 +22,7 @@ items:
     url: "https://civai.org/p/ai-values"
     type: demo
     image: "ai-values-demo.png"
-    venue: "MARS 2025 · CivAI"
+    venue: "MARS 2025, CivAI"
     summary: "Conceived and built from scratch an interactive demo for [CivAI](https://civai.org/) comparing human and LLM positions on contested questions. 20k+ page views in the first 3 months, 22,000+ user responses, and top 5 on Hacker News."
     links:
       - { name: demo, url: "https://civai.org/p/ai-values" }

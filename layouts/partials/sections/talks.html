@@ -15,7 +15,7 @@
               {{ $sub := slice }}
               {{ with .type }}{{ if ne . "talk" }}{{ $sub = $sub | append . }}{{ end }}{{ end }}
               {{ with .title }}{{ $sub = $sub | append (printf "<em>%s</em>" (htmlEscape .)) }}{{ end }}
-              {{ $line := delimit $sub " · " }}
+              {{ $line := delimit $sub ", " }}
               {{ with .event }}{{ $line = trim (printf "%s (%s)" $line (htmlEscape .)) " " }}{{ end }}
               {{ with $line }}<span class="talk__sub">{{ . | safeHTML }}</span>{{ end }}
               {{ with .links }}

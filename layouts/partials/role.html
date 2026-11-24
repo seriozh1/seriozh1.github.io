@@ -1,7 +1,7 @@
 {{/* One role from data/experience.yaml: role, organisation, period, highlights. */}}
 <li class="entry">
   <div class="entry__head">
-    <span class="entry__what"><strong>{{ .role }}</strong> · {{ with .org_url }}<a href="{{ . }}">{{ $.org }}</a>{{ else }}{{ .org }}{{ end }}</span>
+    <span class="entry__what"><strong>{{ .role }}</strong>, {{ with .org_url }}<a href="{{ . }}">{{ $.org }}</a>{{ else }}{{ .org }}{{ end }}</span>
     <span class="entry__when">{{ partial "period.html" (dict "start" .start "end" .end) }}</span>
   </div>
   {{ with .highlights }}

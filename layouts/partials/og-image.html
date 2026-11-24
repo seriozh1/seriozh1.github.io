@@ -1,5 +1,5 @@
 {{/* Link-preview card (og:image), drawn at build time from data/site.yaml: photo, name, tagline
-     (one line per "·" part), site address. Background: assets/og/base.png. Font: Fira Code (OFL). */}}
+     (one line per comma-separated part), site address. Background: assets/og/base.png. Font: Fira Code (OFL). */}}
 {{ $p := hugo.Data.site }}
 {{ $bold := resources.Get "fonts/FiraCode-Bold.ttf" }}
 {{ $reg := resources.Get "fonts/FiraCode-Regular.ttf" }}
@@ -9,7 +9,7 @@
 {{ $f = $f | append (images.Text "0x00" (dict "font" $reg "size" 22 "color" $accent "x" 80 "y" 72)) }}
 {{ $f = $f | append (images.Text $p.name (dict "font" $bold "size" 66 "color" $accent "x" 400 "y" 215)) }}
 {{ $tag := trim (replace (replace ($p.tagline | default "") "[TODO review]" "") "==" "") " " }}
-{{ range $i, $line := split $tag "·" }}
+{{ range $i, $line := split $tag "," }}
   {{ $f = $f | append (images.Text (printf "// %s" (trim $line " ")) (dict "font" $reg "size" 32 "color" $muted "x" 400 "y" (add 315 (mul $i 50)))) }}
 {{ end }}
 {{ $f = $f | append (images.Text (strings.TrimSuffix "/" (strings.TrimPrefix "https://" site.BaseURL)) (dict "font" $reg "size" 24 "color" $muted "x" 80 "y" 525)) }}

@@ -6,7 +6,7 @@
   Texts starting with "[TODO review]" are shown highlighted, and a production build (the deploy)
   fails while any are left.
 */}}
-{{ define "title" }}<title>{{ hugo.Data.site.name }}</title>{{ end }}
+{{ define "title" }}<title>{{ hugo.Data.site.page_title | default hugo.Data.site.name }}</title>{{ end }}
 
 {{ define "main" }}
 {{ $p := hugo.Data.site }}
