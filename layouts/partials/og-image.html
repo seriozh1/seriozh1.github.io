@@ -13,6 +13,7 @@
   {{ $f = $f | append (images.Text (printf "// %s" (trim $line " ")) (dict "font" $reg "size" 32 "color" $muted "x" 400 "y" (add 315 (mul $i 50)))) }}
 {{ end }}
 {{ $f = $f | append (images.Text (strings.TrimSuffix "/" (strings.TrimPrefix "https://" site.BaseURL)) (dict "font" $reg "size" 24 "color" $muted "x" 80 "y" 525)) }}
-{{ $f = $f | append (images.Text "61 6c 69 67 6e 65 64" (dict "font" $reg "size" 24 "color" $accent "x" 780 "y" 525)) }}
+{{ $hex := printf "% x" (index (split $p.name " ") 0) }}
+{{ $f = $f | append (images.Text $hex (dict "font" $reg "size" 24 "color" $accent "x" (sub 1068 (mul (len $hex) 14.4)) "y" 525)) }}
 {{ $img := (resources.Get "og/base.png") | images.Filter $f }}
 {{ return $img }}

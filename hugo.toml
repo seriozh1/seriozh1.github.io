@@ -1,9 +1,9 @@
 # Site settings only. What the page shows (including the order of sections, which also
 # drives the top menu) is set in data/site.yaml; the items come from data/.
 
-# The deploy workflow overrides baseURL with the real Pages URL, so this only
-# matters for local builds. Update it when you add a custom domain.
-baseURL = "https://seriozh1.github.io/"
+# The deploy workflow overrides baseURL with the real Pages URL (the custom domain set
+# in the repo's Pages settings), so this only matters for local builds.
+baseURL = "https://sergeismirnov.com/"
 locale = "en-US"
 theme = "terminal"
 

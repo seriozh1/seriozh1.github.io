@@ -1,9 +1,9 @@
 {{/* Theme footer with the copyright, name from data/site.yaml.
-     The hex string decodes to "aligned" (hover shows it). */}}
+     The hex string is the first name from data/site.yaml as ASCII codes (hover gives a hint). */}}
 <footer class="footer">
   <div class="footer__inner">
     <div class="copyright copyright--user">
-      <span>© {{ hugo.Data.site.name }} <span class="hexdump" title="aligned">61 6c 69 67 6e 65 64</span></span>
+      <span>© {{ hugo.Data.site.name }} {{ $first := index (split hugo.Data.site.name " ") 0 }}<span class="hexdump" title="ASCII, hex-encoded">{{ printf "% x" $first }}</span></span>
     </div>
   </div>
 </footer>
