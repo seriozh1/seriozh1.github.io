@@ -23,7 +23,7 @@ photo_hover:
 location: "Helsinki, Finland"
 
 links:
-  - { name: "Email", url: "mailto:mg1sergey@gmail.com", icon: "mail" }
+  - { name: "Email", url: "mailto:contact@sergeismirnov.com", icon: "mail" }
   - { name: "LinkedIn", url: "https://www.linkedin.com/in/seriozh1/", icon: "linkedin" }
   - { name: "X", url: "https://x.com/seriozh1", icon: "x" }
   - { name: "GitHub", url: "https://github.com/seriozh1", icon: "github" }
@@ -37,7 +37,7 @@ bio:
   - "Open to research collaborations. If you're working on something related, feel free to reach out."
 
 buttons:
-  - { name: "Let's Talk", url: "mailto:mg1sergey@gmail.com"}
+  - { name: "Let's Talk", url: "mailto:contact@sergeismirnov.com"}
   - { name: "CV", url: "/cv.pdf", style: "ghost"  }
   - { name: "Anonymous Feedback", url: "https://forms.gle/r6ECowPXbk9MUTfLA", style: "ghost" }
 
