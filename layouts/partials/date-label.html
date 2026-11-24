@@ -1,0 +1,8 @@
+{{/* "2026-01-08" -> "Jan 08"; "2026-01" -> "Jan". */}}
+{{ $label := "" }}
+{{ if eq (len .) 7 }}
+  {{ $label = (time.AsTime (printf "%s-01" .)).Format "Jan" }}
+{{ else }}
+  {{ $label = (time.AsTime .).Format "Jan 02" }}
+{{ end }}
+{{ return $label }}

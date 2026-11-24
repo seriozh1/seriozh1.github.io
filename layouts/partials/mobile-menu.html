@@ -1,0 +1,9 @@
+{{/* Mobile menu: the same jump links in a dropdown. Input: partials/sections-shown.html. */}}
+<ul class="menu menu--mobile">
+  <li class="menu__trigger">Menu&nbsp;▾</li>
+  <li>
+    <ul class="menu__dropdown">
+      {{ range . }}<li><a href="{{ printf "/#%s" .id | relURL }}">{{ .title }}</a></li>{{ end }}
+    </ul>
+  </li>
+</ul>

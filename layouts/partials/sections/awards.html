@@ -1,0 +1,11 @@
+{{/* Section "awards" of the home page. Shown when "awards" is in the sections list of data/site.yaml and has content. */}}
+  {{ with hugo.Data.awards.items }}
+  <section id="awards">
+    <h2>{{ partial "section-title.html" "awards" }}</h2>
+    <ul class="dated">
+      {{ range sort . "date" "desc" }}
+        <li><time>{{ substr .date 0 4 }}</time><span>{{ partial "md.html" .name }}{{ with .issuer }}<span class="talk__sub">{{ . }}</span>{{ end }}{{ with .links }}<ul class="links">{{ range . }}<li><a href="{{ .url }}">{{ .name }}</a></li>{{ end }}</ul>{{ end }}</span></li>
+      {{ end }}
+    </ul>
+  </section>
+  {{ end }}

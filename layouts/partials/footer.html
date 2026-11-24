@@ -1,0 +1,19 @@
+{{/* Theme footer with the copyright, name from data/site.yaml.
+     The hex string decodes to "aligned" (hover shows it). */}}
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="copyright copyright--user">
+      <span>© {{ hugo.Data.site.name }} <span class="hexdump" title="aligned">61 6c 69 67 6e 65 64</span></span>
+    </div>
+  </div>
+</footer>
+
+{{ $menu := resources.Get "js/menu.js" | js.Build }}
+{{ $cp := resources.Get "js/code.js" | js.Build }}
+
+{{ $bundle := slice $menu $cp | resources.Concat "bundle.js" | resources.Minify }}
+
+<script type="text/javascript" src="{{ $bundle.RelPermalink }}"></script>
+
+<!-- Extended footer section-->
+{{ partial "extended_footer.html" . }}

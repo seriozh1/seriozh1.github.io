@@ -1,0 +1,6 @@
+{{/* (dict "start" .. "end" ..) -> "Sep 2024 – present", "Nov 2026", "2018". */}}
+{{ $s := "" }}{{ with .start }}{{ $s = partial "month-year.html" . }}{{ end }}
+{{ $e := "" }}{{ with .end }}{{ $e = partial "month-year.html" . }}{{ end }}
+{{ $out := $s }}
+{{ if and $s $e (ne $s $e) }}{{ $out = printf "%s – %s" $s $e }}{{ else if not $s }}{{ $out = $e }}{{ end }}
+{{ return $out }}

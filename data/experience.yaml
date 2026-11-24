@@ -1,0 +1,24 @@
+last_updated: "2026-11-24"
+data_collected: "2026-11-22 to 2026-11-24"
+items:
+  - role: "Teaching Assistant, Introduction to Artificial Intelligence (DATA15001)"
+    category: "teaching"
+    org: "University of Helsinki"
+    org_url: "https://www.helsinki.fi/en"
+    start: "2025-09"
+    end: "present"
+    highlights:
+      - "Wrote the machine learning course materials and helped design home exercises."
+      - "Designed and ran a Kaggle customer churn competition (331 students, 187 entrants, 149 teams), with my own dataset and baseline notebook."
+      - "Helped design home exercises, including a GPT nano exercise; for the 2026 run, prepared exercises with Jacucci and reworked the course materials page structure and content."
+
+  - role: "Teacher"
+    category: "teaching"
+    org: "KLSh summer school for high-school students"
+    highlights:
+      - "Teacher and team counsellor for high-school students (30+ students)."
+      - "2019: lecture course 'Prime Number Theory and Its Applications in Cryptography'."
+      - "2020: course 'Every Word Is a Song, or Information Retrieval': building a Python search engine with lemmatisation and TF-IDF (listed in the 2020 programme booklet 'Instead of the KLSh season')."
+      - "Elective 'Sorting Galoshes' on sorting algorithms (up to 10 students); also Python and olympiad mathematics."
+    start: "2019-07"
+    end: "2020-08"

@@ -1,0 +1,32 @@
+{{/* Section "talks" of the home page. Shown when "talks" is in the sections list of data/site.yaml and has content. */}}
+  {{ with hugo.Data.talks.items }}
+  <section id="talks">
+    <h2>{{ partial "section-title.html" "talks" }}</h2>
+    {{ $items := sort . "date" "desc" }}
+    {{ range partial "years.html" $items }}
+      {{ $year := . }}
+      <h3 class="year">{{ $year }}</h3>
+      <ul class="dated">
+        {{ range $items }}{{ if hasPrefix .date $year }}
+          <li>
+            <time>{{ partial "date-label.html" .date }}</time>
+            <span>
+              <strong>{{ .venue }}</strong>
+              {{ $sub := slice }}
+              {{ with .type }}{{ if ne . "talk" }}{{ $sub = $sub | append . }}{{ end }}{{ end }}
+              {{ with .title }}{{ $sub = $sub | append (printf "<em>%s</em>" (htmlEscape .)) }}{{ end }}
+              {{ $line := delimit $sub " · " }}
+              {{ with .event }}{{ $line = trim (printf "%s (%s)" $line (htmlEscape .)) " " }}{{ end }}
+              {{ with $line }}<span class="talk__sub">{{ . | safeHTML }}</span>{{ end }}
+              {{ with .links }}
+                <ul class="links">
+                  {{ range . }}<li><a href="{{ .url }}">{{ .name }}</a></li>{{ end }}
+                </ul>
+              {{ end }}
+            </span>
+          </li>
+        {{ end }}{{ end }}
+      </ul>
+    {{ end }}
+  </section>
+  {{ end }}

@@ -41,9 +41,9 @@ pre {
   font-variant-ligatures: none;
 }
 
-/* Layout: narrower single column for comfortable reading */
+/* Layout: wide page like the template; long text blocks are capped separately */
 .container {
-  max-width: 760px;
+  max-width: 1100px;
 }
 
 /* Header: name in accent, muted tagline, thin rule */
@@ -98,14 +98,14 @@ pre {
 
 .navigation-menu a,
 .menu__trigger {
-  color: var(--muted);
+  color: var(--foreground);
   text-decoration: none;
   white-space: pre;
 }
 
 .navigation-menu a:hover,
 .navigation-menu a:focus-visible {
-  color: var(--foreground);
+  color: var(--accent);
 }
 
 .menu__dropdown {
@@ -271,7 +271,6 @@ hr {
   .menu,
   .menu--mobile,
   .footer,
-  .code-title button,
   .pagination {
     display: none !important;
   }
@@ -325,21 +324,161 @@ hr {
   margin-bottom: 50px;
 }
 
-/* Hero: photo, name, tagline, links */
+/* Hero: name, tagline, bio and buttons on the left; photo with location and profile links on the right */
+/* Grid: name and tagline, then bio, on the left; photo and links on the right.
+   On small screens: name, then photo and links, then bio. */
 .hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 260px;
+  grid-template-areas:
+    "head side"
+    "text side";
+  grid-template-rows: auto 1fr;
+  column-gap: 40px;
+  margin: 30px 0 60px;
+}
+
+.hero__head {
+  grid-area: head;
+}
+
+.hero__text {
+  grid-area: text;
+  min-width: 0;
+}
+
+.hero__bio {
+  margin-top: 10px;
+  max-width: 72ch;
+}
+
+.hero__side {
+  grid-area: side;
+  margin-top: 10px;
+}
+
+.hero__figure {
+  position: relative;
+  width: 210px;
+  margin: 0;
+  padding: 0;
+}
+
+/* Photo hover (static/js/jack-in.js): terminal boot, then ASCII portrait, inside the photo's circle */
+.hero__figure[data-jack] {
+  cursor: crosshair;
+}
+
+.jack {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.jack__ascii,
+.jack__term {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
+.jack__ascii {
+  transition: opacity 0.4s;
+}
+
+.jack__term {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 0 0 30px;
+  background: #05080b;
+  color: var(--accent);
+  font-size: 10.5px;
+  line-height: 1.75;
+  white-space: pre;
+}
+
+.jack__term .head {
+  color: var(--foreground);
+  font-weight: 700;
+}
+
+.jack__term .cursor::after {
+  content: "\2588";
+  margin-left: 1px;
+  animation: jack-blink 0.8s steps(1) infinite;
+}
+
+@keyframes jack-blink {
+  50% { opacity: 0; }
+}
+
+.hero__figure figcaption {
+  margin: 0;
+  padding: 6px 0 0;
+  color: var(--muted);
+  background: none;
+  font-size: 0.8em;
+}
+
+/* Location and profile links under the photo, one per line with an icon */
+.social {
+  list-style: none;
+  margin: 18px 0 0;
+  padding: 0;
+}
+
+.social li {
+  margin: 0 0 8px;
+  padding: 0;
+}
+
+.social li::before {
+  display: none;
+}
+
+.social li,
+.social a {
   display: flex;
   align-items: center;
-  gap: 28px;
-  margin: 30px 0 50px;
+  gap: 10px;
+  color: var(--muted);
+}
+
+.social a {
+  text-decoration: none;
+}
+
+.social a:hover,
+.social a:focus-visible {
+  color: var(--accent);
+}
+
+.social a:hover span,
+.social a:focus-visible span {
+  text-decoration: underline;
+}
+
+.social .icon {
+  flex: 0 0 auto;
+  width: 18px;
+  height: 18px;
 }
 
 .hero__photo {
-  width: 120px;
-  height: 120px;
-  flex: 0 0 auto;
+  display: block;
+  width: 100%;
+  height: auto;
   margin: 0;
-  border: 1px solid color-mix(in srgb, var(--accent) 50%, transparent);
-  padding: 3px;
+  padding: 0;
+  border: none;
 }
 
 .hero__name {
@@ -354,8 +493,7 @@ hr {
   color: var(--muted);
 }
 
-/* Bracketed link lists: [email] [github] ... */
-.hero__links,
+/* Bracketed link lists: [code] [abstract] ... */
 .links {
   display: flex;
   flex-wrap: wrap;
@@ -365,32 +503,53 @@ hr {
   padding: 0;
 }
 
-.hero__links li::before,
 .links li::before {
   content: "[";
   color: var(--muted);
 }
 
-.hero__links li::after,
 .links li::after {
   content: "]";
   color: var(--muted);
 }
 
-.hero__links a,
 .links a {
   text-decoration: none;
 }
 
-.hero__links a:hover,
 .links a:hover {
   text-decoration: underline;
 }
 
-/* Selected work cards */
+/* About: cv / email buttons */
+.cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.cta a.button {
+  padding: 2px 14px;
+  font-weight: 400;
+  color: var(--background);
+  background: var(--accent);
+  border: 1px solid var(--accent);
+}
+
+.cta a.button--ghost {
+  color: var(--accent);
+  background: none;
+}
+
+.cta a.button:hover {
+  filter: brightness(1.15);
+}
+
+/* Featured work cards */
 .work {
   display: grid;
-  grid-template-columns: 160px 1fr;
+  grid-template-columns: minmax(0, 1fr);
   gap: 22px;
   padding: 20px 0;
   border-top: 1px solid var(--rule);
@@ -400,24 +559,15 @@ hr {
   border-bottom: 1px solid var(--rule);
 }
 
-.work__thumb img,
-.work__placeholder {
+.work__banner {
   display: block;
-  width: 160px;
-  height: 110px;
-  margin: 0;
-  object-fit: cover;
-  border: 1px solid var(--rule);
-}
-
-.work__placeholder {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: color-mix(in srgb, var(--accent) 60%, transparent);
-  font-size: 0.85em;
-  background:
-    repeating-linear-gradient(45deg, transparent 0 6px, color-mix(in srgb, var(--accent) 6%, transparent) 6px 7px);
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 360px;
+  margin: 0 auto;
+  padding: 0;
+  border: none;
 }
 
 .work__title {
@@ -454,6 +604,55 @@ hr {
   border-color: var(--rule);
 }
 
+.badge--highlight {
+  color: var(--background);
+  background: var(--accent);
+}
+
+/* [abstract] [bibtex] [press] toggles and their panels */
+button.toggle {
+  display: inline;
+  padding: 0;
+  font: inherit;
+  font-weight: 400;
+  color: var(--accent);
+  background: none;
+  border: none;
+}
+
+button.toggle:hover,
+button.toggle[aria-expanded="true"] {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.panel {
+  margin-top: 10px;
+  padding: 8px 14px;
+  border-left: 2px solid color-mix(in srgb, var(--accent) 50%, transparent);
+  font-size: 0.9em;
+}
+
+.panel p {
+  margin: 0 0 8px;
+}
+
+.panel p:last-child {
+  margin-bottom: 0;
+}
+
+.panel pre {
+  margin: 0;
+  padding: 0;
+  border: none;
+  white-space: pre-wrap;
+}
+
+.press {
+  margin: 0;
+  padding-left: 1.2em;
+}
+
 .work__summary,
 .work__authors {
   margin: 0 0 8px;
@@ -468,58 +667,166 @@ hr {
   color: var(--foreground);
 }
 
-/* News and writing lists: date column + text */
-.news {
+/* Talks, awards and service: year headings or a date column, then text */
+.year {
+  margin: 22px 0 8px;
+  font-size: var(--font-size);
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.year::before {
+  content: "// ";
+  color: var(--accent);
+}
+
+.dated {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-.news li {
+.dated > li {
   display: grid;
-  grid-template-columns: 6.5em 1fr;
+  grid-template-columns: 4em 1fr;
   gap: 12px;
   margin-bottom: 6px;
 }
 
-.news time {
+.dated time {
   color: var(--muted);
 }
 
-.news p {
+.dated p {
   margin: 0;
 }
 
-.news-older summary {
-  cursor: pointer;
+.talk__sub {
+  display: block;
   color: var(--muted);
-  margin: 8px 0;
+}
+
+.dated .links {
+  margin-top: 2px;
+}
+
+/* Publications and teaching: title line with the period on the right */
+.entries {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Two columns: title and all details on the left, dates alone in a fixed column on the right */
+.entry {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 19ch;
+  column-gap: 3em;
+  align-items: baseline;
+  margin-bottom: 16px;
+}
+
+.entry > * {
+  grid-column: 1;
+}
+
+.entry__head {
+  display: contents;
+}
+
+.entry__what {
+  grid-column: 1;
+}
+
+.entry__when {
+  grid-column: 2;
+  grid-row: 1;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.entry__sub {
+  color: var(--muted);
+}
+
+.entry__sub p {
+  display: inline;
+  margin: 0;
+}
+
+.entry .links {
+  margin-top: 2px;
+}
+
+.entry__points {
+  list-style: none;
+  margin: 4px 0 0;
+  padding: 0;
+}
+
+.entry__points > li {
+  position: relative;
+  padding-left: 1.4em;
+}
+
+.entry__points > li::before {
+  content: "-";
+  position: absolute;
+  left: 0.3em;
+  color: var(--muted);
+}
+
+/* Highlight: ==text== in data/ fields, yellow text */
+mark {
+  background: none;
+  color: #f5c542;
+  padding: 0;
+}
+
+/* Text not yet reviewed by Sergei ("[TODO review]" in data/): local preview only, the deploy build refuses it */
+mark.todo {
+  background: #f5c542;
+  color: #0b0f14;
+  padding: 0 4px;
+  margin-right: 4px;
+  font-size: 0.8em;
+  font-weight: 600;
+  white-space: nowrap;
 }
 
 @media (max-width: 684px) {
   .hero {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 18px;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "head"
+      "side"
+      "text";
+    grid-template-rows: auto;
+    row-gap: 20px;
+  }
+
+  .hero__side {
+    max-width: 300px;
+    margin-top: 0;
   }
 
   .work {
-    grid-template-columns: 1fr;
     gap: 12px;
   }
 
-  .work__thumb img {
-    width: 100%;
-    height: 140px;
-  }
-
-  .work__thumb:has(.work__placeholder) {
-    display: none;
-  }
-
-  .news li {
+  .dated > li {
     grid-template-columns: 1fr;
     gap: 0;
     margin-bottom: 12px;
+  }
+
+  .entry {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .entry__when {
+    grid-column: 1;
+    grid-row: auto;
+    text-align: left;
   }
 }

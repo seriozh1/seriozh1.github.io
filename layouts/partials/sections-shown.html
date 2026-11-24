@@ -1,0 +1,16 @@
+{{/* The home-page sections to show, in order: ids from "sections" in data/site.yaml whose partial
+     (layouts/partials/sections/<id>.html) renders something. Returns a list of
+     (dict "id" "html" "title"); the menu label is the section heading. Used by the page (layouts/index.html) and the top menu, so the two always match. */}}
+{{ $out := slice }}
+{{ range hugo.Data.site.sections }}
+  {{ $id := . }}
+  {{ if templates.Exists (printf "partials/sections/%s.html" $id) }}
+    {{ $html := partialCached (printf "sections/%s.html" $id) $id $id }}
+    {{ if trim (string $html) " \n\t" }}
+      {{ $out = $out | append (dict "id" $id "html" $html "title" (partial "section-title.html" $id)) }}
+    {{ end }}
+  {{ else }}
+    {{ warnf "data/site.yaml: section %q has no template layouts/partials/sections/%s.html" $id $id }}
+  {{ end }}
+{{ end }}
+{{ return $out }}

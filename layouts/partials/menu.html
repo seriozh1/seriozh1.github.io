@@ -1,0 +1,6 @@
+{{/* Desktop menu: one jump link per home-page section, in page order. Input: partials/sections-shown.html. */}}
+<nav class="navigation-menu">
+  <ul class="navigation-menu__inner menu--desktop">
+    {{ range . }}<li><a href="{{ printf "/#%s" .id | relURL }}">{{ .title }}</a></li>{{ end }}
+  </ul>
+</nav>

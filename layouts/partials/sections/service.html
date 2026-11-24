@@ -1,0 +1,11 @@
+{{/* Section "service" of the home page. Shown when "service" is in the sections list of data/site.yaml and has content. */}}
+  {{ with hugo.Data.service.items }}
+  <section id="service">
+    <h2>{{ partial "section-title.html" "service" }}</h2>
+    <ul class="dated">
+      {{ range sort . "date" "desc" }}
+        <li><time>{{ substr .date 0 4 }}</time><span><strong>{{ .role }}</strong>: {{ partial "md.html" .what }}{{ with .details }}<span class="talk__sub">{{ partial "md.html" . }}</span>{{ end }}{{ with .recognition }}<span class="talk__sub">{{ partial "md.html" . }}</span>{{ end }}{{ with .links }}<ul class="links">{{ range . }}<li><a href="{{ .url }}">{{ .name }}</a></li>{{ end }}</ul>{{ end }}</span></li>
+      {{ end }}
+    </ul>
+  </section>
+  {{ end }}

@@ -1,54 +1,24 @@
+# Site settings only. What the page shows (including the order of sections, which also
+# drives the top menu) is set in data/site.yaml; the items come from data/.
+
 # The deploy workflow overrides baseURL with the real Pages URL, so this only
 # matters for local builds. Update it when you add a custom domain.
 baseURL = "https://seriozh1.github.io/"
 locale = "en-US"
-title = "Sergei Smirnov"
 theme = "terminal"
-# The hex string decodes to "aligned" (hover shows it).
-copyright = '© Sergei Smirnov <span class="hexdump" title="aligned">61 6c 69 67 6e 65 64</span>'
 
 enableRobotsTXT = true
+# One-page site: no tag/category pages or RSS feed.
+disableKinds = ["taxonomy", "term", "rss"]
 
-[pagination]
-  pagerSize = 10
-
+# Allow raw HTML inside Markdown fields of the data files.
 [markup.goldmark.renderer]
   unsafe = true
 
-[markup.highlight]
-  noClasses = false
+# ==text== in data fields renders as yellow text (<mark>), for key phrases.
+[markup.goldmark.extensions.extras.mark]
+  enable = true
 
 [params]
-  # Section whose pages get prev/next links (content/writing/).
-  contentTypeName = "writing"
   centerTheme = true
   fullWidthTheme = false
-  showMenuItems = 4
-  showLastUpdated = false
-  readMore = "Read more"
-  subtitle = "research engineer · ai safety & evals"
-  keywords = "AI safety, machine learning, research engineering"
-  dateFormat = "2006-01-02"
-
-  [params.logo]
-    logoText = "Sergei Smirnov"
-    logoHomeLink = "/"
-
-# Top menu: jump links to the home page sections.
-[menus]
-  [[menus.main]]
-    name = "about"
-    url = "/#about"
-    weight = 10
-  [[menus.main]]
-    name = "work"
-    url = "/#work"
-    weight = 20
-  [[menus.main]]
-    name = "news"
-    url = "/#news"
-    weight = 30
-  [[menus.main]]
-    name = "writing"
-    url = "/#writing"
-    weight = 40

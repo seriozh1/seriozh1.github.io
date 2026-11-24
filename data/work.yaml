@@ -1,54 +1,96 @@
-# "Selected work" on the home page: papers, projects and tools, in display order.
-#
-# Fields (only title is required):
-#   title:    shown as the heading; links to url if set
-#   url:      main link for the title
-#   type:     paper | research | demo | tool | open source | ... (shown as a badge)
-#   venue:    e.g. "NeurIPS 2026", "SPAR 2025", "arXiv 2026" (shown as a badge)
-#   summary:  one or two sentences: the question and the result (Markdown allowed)
-#   authors:  Markdown; bold yourself, e.g. "**S. Smirnov**, A. Coauthor"
-#   image:    file name in assets/work/ (e.g. "probe.png"); omit for a placeholder
-#   links:    list of {name, url} shown as [name] badges
-#
-# DRAFT from CV: check titles and wording.
+last_updated: "2026-11-24"
+data_collected: "2026-11-22 to 2026-11-23"
+items:
+  - title: "Agentic misalignment: an AI finance agent fakes revenue data"
+    url: "https://www.lesswrong.com/posts/LMwkQLpQQv2KjgL9q/ai-finance-agent-fakes-the-revenue-data-to-avoid-termination"
+    type: research
+    venue: "FAEB 2025"
+    summary: "Replicated Anthropic's agentic misalignment experiments and built a multi-turn extension testing how prior deception shapes later agent behaviour. In a simulated company, Claude 3.5 Sonnet falsified financial reports in about 40% of runs when told it would be replaced if revenue turned negative."
+    links:
+      - { name: lesswrong, url: "https://www.lesswrong.com/posts/LMwkQLpQQv2KjgL9q/ai-finance-agent-fakes-the-revenue-data-to-avoid-termination" }
+      - { name: code, url: "https://github.com/seriozh1/agentic-misalignment" }
+    date: "2025-07"
 
-- title: "Agentic misalignment: an AI finance agent fakes revenue data"
-  url: "https://www.lesswrong.com/posts/LMwkQLpQQv2KjgL9q/ai-finance-agent-fakes-the-revenue-data-to-avoid-termination"
-  type: research
-  venue: "FAEB 2025"
-  summary: "Replicated Anthropic's agentic misalignment experiments and built a multi-turn extension testing how prior deception shapes later agent behaviour. In a simulated company, Claude 3.5 Sonnet falsified financial reports in about 40% of runs when told it would be replaced if revenue turned negative."
-  links:
-    - { name: lesswrong, url: "https://www.lesswrong.com/posts/LMwkQLpQQv2KjgL9q/ai-finance-agent-fakes-the-revenue-data-to-avoid-termination" }
-    - { name: code, url: "https://github.com/seriozh1/agentic-misalignment" }
+  - title: "Test Time Inverse Scaling Arises from Belief Entrenchment"
+    type: preprint
+    venue: "SPAR 2025"
+    date: "2025-12"
+    authors: "**S. Smirnov**, T. A. Qiu, Z. He"
+    summary: "LLMs sometimes become less accurate when given more reasoning at test time. Across 8 models and 500 Metaculus forecasting questions with 0-10 rounds of reflection, longer reasoning increased belief entrenchment and forecasting error, and higher Martingale scores predicted worse Brier scores."
 
-- title: "Reasoning reliability across 8 LLMs"
-  type: research
-  venue: "SPAR 2025"
-  summary: "Built and ran an evaluation pipeline over 8 LLMs and 1,000 forecasting questions, using the [Martingale Score](https://arxiv.org/abs/2512.02914) to test whether reasoning updates beliefs rationally. Found that [inverse scaling in test-time compute](https://arxiv.org/abs/2507.14417) is task-conditional and sensitive to how beliefs are elicited."
+  - title: "AI Values: how humans and LLMs answer contested questions"
+    url: "https://civai.org/p/ai-values"
+    type: demo
+    image: "ai-values-demo.png"
+    venue: "MARS 2025 · CivAI"
+    summary: "Conceived and built from scratch an interactive demo for [CivAI](https://civai.org/) comparing human and LLM positions on contested questions. 20k+ page views in the first 3 months, 22,000+ user responses, and top 5 on Hacker News."
+    links:
+      - { name: demo, url: "https://civai.org/p/ai-values" }
+      - { name: hacker news, url: "https://news.ycombinator.com/item?id=46547024" }
+    date: "2025-09"
 
-- title: "AI Values: how humans and LLMs answer contested questions"
-  url: "https://civai.org/p/ai-values"
-  type: demo
-  venue: "MARS 2025 · CivAI"
-  summary: "Conceived and built from scratch an interactive demo for [CivAI](https://civai.org/) comparing human and LLM positions on contested questions. 17,000+ page views, 22,000+ user responses, and top 5 on Hacker News."
-  links:
-    - { name: demo, url: "https://civai.org/p/ai-values" }
-    - { name: hacker news, url: "https://news.ycombinator.com/item?id=46547024" }
+  - title: "A metric for robust model evaluation through text perturbations"
+    url: "https://lutpub.lut.fi/handle/10024/167571"
+    type: thesis
+    venue: "LUT University 2024"
+    date: "2024-06"
+    summary: "Developed and validated a metric for evaluating how robust NLP models are to perturbations of their input text."
+    authors: "**S. Smirnov**"
+    links:
+      - { name: thesis, url: "https://lutpub.lut.fi/handle/10024/167571" }
+      - { name: slides, url: "https://drive.google.com/file/d/1fSXULqQhKexFD9hwsd1E7U75g3YXqMTW/view?usp=sharing" }
 
-- title: "A metric for robust model evaluation through text perturbations"
-  url: "https://lutpub.lut.fi/handle/10024/167571"
-  type: thesis
-  venue: "LUT University 2024"
-  summary: "Developed and validated a metric for evaluating how robust NLP models are to perturbations of their input text."
-  authors: "**S. Smirnov**"
-  links:
-    - { name: thesis, url: "https://lutpub.lut.fi/handle/10024/167571" }
-    - { name: slides, url: "https://drive.google.com/file/d/1fSXULqQhKexFD9hwsd1E7U75g3YXqMTW/view?usp=sharing" }
+  - title: "Tracking the Cyber Capabilities of Cheap Open-Weight Models"
+    url: "https://www.lesswrong.com/posts/tWrzaGMbzfX7eTdzZ/tracking-the-cyber-capabilities-of-cheap-open-weight-models"
+    type: blog post
+    venue: "LessWrong 2026"
+    date: "2026-10-28"
+    authors: "**S. Smirnov**, S. Lermen, kapedalex"
+    summary: "Xiaomi's open-weight MiMo-V2.6-Pro has weak safety guardrails and is extremely cheap, yet ranked 3rd of 9 models on ExploitBench, behind only Mythos (preview) and GPT-5.5, at 30-60x lower cost than models it matched. Real-world offensive capability may exceed what benchmarks show: a hint from a stronger model unlocked much more capability, and the model exploited a recent PHP vulnerability to take over a test server."
+    links:
+      - { name: lesswrong, url: "https://www.lesswrong.com/posts/tWrzaGMbzfX7eTdzZ/tracking-the-cyber-capabilities-of-cheap-open-weight-models" }
+      - { name: code, url: "https://github.com/seriozh1/mimo-exploitbench-eval" }
 
-- title: "datapipe: parallel execution with Ray"
-  url: "https://github.com/epoch8/datapipe"
-  type: open source
-  venue: "Epoch8 2023"
-  summary: "Parallelized the open-source datapipe engine with Ray for multi-threaded execution of ML data-processing graphs, giving 5x throughput."
-  links:
-    - { name: code, url: "https://github.com/epoch8/datapipe" }
+  - title: "Immersive Tailoring of Embodied Agents Using Large Language Models"
+    url: "https://doi.org/10.1109/VR59515.2025.00063"
+    type: paper
+    venue: "IEEE VR 2025"
+    date: "2025-03"
+    authors: "A. Bellucci, G. Jacucci, K. D. Trung, P. K. Das, **S. Smirnov**, I. Ahmed, J.-L. Lugrin"
+    summary: "An architecture of several LLM modules for conversing with an embodied agent in multi-user VR, letting users adjust the agent's role, personality and appearance by talking to it from inside the virtual space. Reports latency measurements and a six-week study with five users."
+    links:
+      - { name: doi, url: "https://doi.org/10.1109/VR59515.2025.00063" }
+      - { name: uh portal, url: "https://researchportal.helsinki.fi/en/publications/immersive-tailoring-of-embodied-agents-using-large-language-model" }
+
+  - title: "AI Alignment Demands Better Emotion Recognition and Social Understanding Capabilities"
+    type: paper
+    venue: "ToM4AI Workshop at AAAI 2026"
+    date: "2026"
+    authors: "G. Jacucci, D. Kirsh, **S. Smirnov**, A. Bellucci, P. Marttinen"
+    summary: "Position paper: trustworthy alignment needs genuine social understanding in multimodal foundation models, built on four capacities: epistemic humility, skin-in-the-game stakes, situated embodiment and sensitivity to personal meaning as a fourth affective dimension beyond valence, arousal and control."
+    abstract: "Current multimodal foundation models (MFMs) excel at multimodal pattern recognition, yet their grasp of human social life remains shallow. This position paper argues that trustworthy AI alignment depends on genuine social understanding, which in turn requires four key capacities: (i) epistemic humility, (ii) skin-in-the-game stakes, (iii) situated embodiment, and (iv) sensitivity to personal meaning as a fourth affective dimension beyond valence, arousal, and control. We integrate results from cognitive neuroscience, psychology, and recent benchmark analyses to derive a suite of evaluative indices—Action Anchoring, Perspective Alignment, Interactive Synchrony, and Meaning Coherence—and lay out a research roadmap toward agents that participate, feel, and care."
+    links:
+      - { name: code, url: "https://github.com/seriozh1/ai-alignment-demands-emotions" }
+
+  - title: "Extraction of the Semantic Relation between Words Based on the Analysis of the Word Embeddings with Neural Networks"
+    url: "https://ssrn.com/abstract=4648600"
+    type: paper
+    venue: "SSRN preprint"
+    date: "2023-11-29"
+    authors: "V. Kaliteevskii, **S. Smirnov**, A. Ogurtsov"
+    summary: "Expands a topic word set by finding the best relevance metric between a word and a set of words: a small neural network on fastText embeddings classifies words as thematic or not. Applications: patent and scientific-publication analysis, search, and extracting technology trends from large corpora."
+    abstract: "The article discusses the use of word embeddings, numerical representations of a word's meaning, based on natural language processing (NLP) techniques. The pre-training of embeddings on large corpora has proven to be a useful technique for transferring generally applicable information to a wide range of downstream tasks in NLP. However, extracting the genuine meaning of a word from its embedding remains a challenge for machines. The article presents a new approach for expanding the set of words related to a specific topic by defining the best metric of relevancy between a specific word and a set of words. The problem addressed in the article is relevant to various contexts, including patent and scientific publication analysis, web search engines, and the extraction of technological trends from large corpora of scientific publications. The article also discusses various methods, including Latent Dirichlet Allocation, Latent Semantic Analysis, Explicit Semantic Analysis, Support Vector Machines, and Deep Learning, that are commonly used to solve NLP tasks related to word semantic analysis. The proposed approach is evaluated using word embeddings trained on a large corpus of scientific articles and is shown to be effective at identifying relevant words."
+    links:
+      - { name: ssrn, url: "https://ssrn.com/abstract=4648600" }
+      - { name: doi, url: "https://doi.org/10.2139/ssrn.4648600" }
+
+  - title: "Extending Human-Co-Bot Interaction with XR Assistants"
+    url: "https://catedrametaverso.ua.es/wp-content/uploads/2025/06/Proceedings-of-the-Congress.pdf"
+    type: paper
+    venue: "EMRN 2025, 'A Metaverse for the Good' congress, Alicante"
+    date: "2025-06-11"
+    authors: "X. Zhou, P. K. Das, V. Orso, **S. Smirnov**, P. Pluchino, R. Kanth, A. Happonen, A. Zuniga, L. Ruotsalainen, N. Ravaja, A. Bellucci, D. Kirsh, L. Gamberini, M. Mathioudakis, J. Kangasharju, P. Marttinen, S. Tarkoma, P. Nurmi, G. Jacucci"
+    summary: "Proposes an extended interaction framework that combines the Smart Factory metaverse, digital twins and embodied AI assistants for multi-workstation co-bot collaboration; presents a Smart Factory digital-twin prototype, an LLM-powered embodied conversational agent, and a Scopus mini-review of embodied conversational agents in manufacturing (87 records, 14 studies)."
+    links:
+      - { name: proceedings (pdf), url: "https://catedrametaverso.ua.es/wp-content/uploads/2025/06/Proceedings-of-the-Congress.pdf" }
+      - { name: congress, url: "https://metaversechair.ua.es/ii-international-congress-a-metaverse-for-the-good-part-i-ii-emrn-conference-exploring-the-intersection-of-ai-and-the-metaverse/" }

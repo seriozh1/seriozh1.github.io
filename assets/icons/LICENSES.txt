@@ -1,0 +1,2 @@
+Brand icons (github, googlescholar, linkedin, x): Simple Icons, https://simpleicons.org, CC0 1.0.
+mail and map-pin: Lucide, https://lucide.dev, ISC License (Copyright (c) Lucide Contributors).

@@ -1,0 +1,6 @@
+{{/* Heading of a home-page section: "title" of its block in data/site.yaml, else a default. */}}
+{{ $id := . }}
+{{ $defaults := dict "work" "featured" "awards" "awards & grants" }}
+{{ $t := index $defaults $id | default $id }}
+{{ with index hugo.Data.site $id }}{{ with .title }}{{ $t = . }}{{ end }}{{ end }}
+{{ return $t }}

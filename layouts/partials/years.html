@@ -1,0 +1,4 @@
+{{/* Distinct years ("YYYY") of a list of items with a "date" field, in list order. */}}
+{{ $years := slice }}
+{{ range . }}{{ $years = $years | append (substr .date 0 4) }}{{ end }}
+{{ return uniq $years }}

@@ -1,0 +1,19 @@
+{{/* schema.org Person data for search engines, from data/site.yaml. */}}
+{{ if .IsHome }}
+  {{ $p := hugo.Data.site }}
+  {{ $sameAs := slice }}
+  {{ range $p.links }}{{ if hasPrefix .url "http" }}{{ $sameAs = $sameAs | append .url }}{{ end }}{{ end }}
+  {{ $orgs := slice }}
+  {{ range $p.affiliations }}{{ $orgs = $orgs | append (dict "@type" "Organization" "name" .name "url" .url) }}{{ end }}
+  {{ $person := dict
+    "@context" "https://schema.org"
+    "@type" "Person"
+    "name" $p.name
+    "url" site.BaseURL
+    "description" $p.description
+    "jobTitle" $p.job_title
+    "affiliation" $orgs
+    "sameAs" $sameAs
+  }}
+  <script type="application/ld+json">{{ $person | jsonify | safeJS }}</script>
+{{ end }}

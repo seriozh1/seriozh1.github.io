@@ -1,0 +1,24 @@
+{{/* [links] plus [abstract] [bibtex] [press] toggles and their panels for one work item.
+     Input: (dict "item" <work item> "id" <unique prefix>). */}}
+{{ $w := .item }}{{ $id := .id }}
+{{ if or $w.links $w.abstract $w.bibtex $w.press }}
+  <ul class="links">
+    {{ range $w.links }}<li><a href="{{ .url }}">{{ .name }}</a></li>{{ end }}
+    {{ with $w.abstract }}<li><button class="toggle" aria-expanded="false" aria-controls="abstract-{{ $id }}">abstract</button></li>{{ end }}
+    {{ with $w.bibtex }}<li><button class="toggle" aria-expanded="false" aria-controls="bibtex-{{ $id }}">bibtex</button></li>{{ end }}
+    {{ with $w.press }}<li><button class="toggle" aria-expanded="false" aria-controls="press-{{ $id }}">press</button></li>{{ end }}
+  </ul>
+{{ end }}
+{{ with $w.abstract }}<div class="panel" id="abstract-{{ $id }}" hidden>{{ partial "md.html" . }}</div>{{ end }}
+{{ with $w.bibtex }}<div class="panel" id="bibtex-{{ $id }}" hidden><pre><code>{{ . }}</code></pre></div>{{ end }}
+{{ with $w.press }}
+  <div class="panel" id="press-{{ $id }}" hidden>
+    <ul class="press">
+      {{ range . }}
+        {{ $label := .outlet }}
+        {{ with .title }}{{ $label = printf "%s — %s" $label . }}{{ end }}
+        <li>{{ with .url }}<a href="{{ . }}">{{ $label }}</a>{{ else }}{{ $label }}{{ end }}</li>
+      {{ end }}
+    </ul>
+  </div>
+{{ end }}

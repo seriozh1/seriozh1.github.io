@@ -1,0 +1,16 @@
+{{/* Copy of the theme's header.html. Change: the menus are built from the home-page sections
+     (partials/sections-shown.html), not from a menu list in hugo.toml. */}}
+{{ $sections := partial "sections-shown.html" . }}
+<header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      {{ partial "logo.html" . }}
+    </div>
+    {{ with $sections }}
+      {{ partial "mobile-menu.html" . }}
+    {{ end }}
+  </div>
+  {{ with $sections }}
+    {{ partial "menu.html" . }}
+  {{ end }}
+</header>

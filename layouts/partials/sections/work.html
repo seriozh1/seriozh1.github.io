@@ -1,0 +1,34 @@
+{{/* Section "work" of the home page. Shown when "work" is in the sections list of data/site.yaml and has content. */}}
+{{ $p := hugo.Data.site }}{{ $work := hugo.Data.work.items }}
+  {{ $featured := slice }}
+  {{ range $p.work.featured }}
+    {{ $t := . }}
+    {{ with where $work "title" $t }}{{ $featured = $featured | append (index . 0) }}{{ else }}{{ warnf "data/site.yaml: no item in data/work.yaml is titled %q" $t }}{{ end }}
+  {{ end }}
+  {{ with $featured }}
+  <section id="work">
+    <h2>{{ partial "section-title.html" "work" }}</h2>
+    {{ range $i, $w := . }}
+      <article class="work">
+        {{/* Optional banner above the text: set "image" in work.yaml to a file in assets/work/. Without one, the card is text only. */}}
+        {{ with .image }}{{ with resources.Get (printf "work/%s" .) }}
+          {{ $b := .Resize "1600x q85 webp" }}
+          <img class="work__banner" src="{{ $b.RelPermalink }}" width="{{ $b.Width }}" height="{{ $b.Height }}" alt="" loading="lazy">
+        {{ end }}{{ end }}
+        <div class="work__body">
+          <h3 class="work__title">
+            {{ if .url }}<a href="{{ .url }}">{{ .title }}</a>{{ else }}{{ .title }}{{ end }}
+          </h3>
+          <div class="work__badges">
+            {{ with .type }}<span class="badge">{{ . }}</span>{{ end }}
+            {{ with .venue }}<span class="badge badge--venue">{{ . }}</span>{{ end }}
+            {{ with .presentation }}<span class="badge badge--highlight">{{ . }}</span>{{ end }}
+          </div>
+          {{ with .summary }}<p class="work__summary">{{ partial "md.html" . }}</p>{{ end }}
+          {{ with .authors }}<p class="work__authors">{{ . | markdownify }}</p>{{ end }}
+          {{ partial "item-links.html" (dict "item" . "id" (printf "w%d" $i)) }}
+        </div>
+      </article>
+    {{ end }}
+  </section>
+  {{ end }}

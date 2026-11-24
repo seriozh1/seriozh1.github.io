@@ -1,0 +1,23 @@
+last_updated: "2026-11-24"
+data_collected: "2026-11-22 to 2026-11-23"
+items:
+  - name: "BlueDot Impact Rapid Grant for the Helsinki AI safety event"
+    date: "2026-10-06"
+
+  - name: "UH-funded 4-year doctoral candidate position, University of Helsinki"
+    date: "2024-11-18"
+
+  - name: "Dell Technologies Successful First-Year Student Scholarship"
+    date: "2020-11-17"
+    issuer: "Dell Technologies"
+
+  - name: "1st place, regional round of the Samsung IT School project contest (Social application category), and national finalist"
+    date: "2018"
+    issuer: "Samsung Innovation Campus (IT School Samsung)"
+    links:
+      - { name: code, url: "https://github.com/seriozh1/ReCom" }
+
+  - name: "3rd place, Soft-Parade 2018, 'Debut' category (ReCom mobile app)"
+    date: "2018-11-10"
+    issuer: "Soft-Parade, regional showcase-competition of youth IT projects"
+    links:

@@ -1,0 +1,4 @@
+{{/* Markdown text from data/. A leading "[TODO review]" (text not yet approved by Sergei) is shown highlighted. */}}
+{{ $s := replace (string .) "[TODO review]" "<mark class=\"todo\">TODO review</mark>" }}
+{{ $html := $s | markdownify }}
+{{ return $html }}

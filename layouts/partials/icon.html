@@ -1,0 +1,4 @@
+{{/* Inline SVG icon from assets/icons/<name>.svg (licences in assets/icons/LICENSES.txt); empty if missing. */}}
+{{ $out := "" }}
+{{ with . }}{{ with resources.Get (printf "icons/%s.svg" .) }}{{ $out = replace .Content "<svg " "<svg class=\"icon\" aria-hidden=\"true\" focusable=\"false\" " 1 | safeHTML }}{{ end }}{{ end }}
+{{ return $out }}

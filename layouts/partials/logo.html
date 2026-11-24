@@ -1,10 +1,10 @@
-{{/* Site name (decrypts on load/hover via static/js/ice.js) plus muted tagline from params.subtitle.
+{{/* Site name (decrypts on load/hover via static/js/ice.js) plus muted tagline, from data/site.yaml.
      Hidden on the home page, where the hero shows the name instead. */}}
 {{ if not .IsHome }}
-<a href="{{ $.Site.Params.Logo.LogoHomeLink | default "/" }}">
+<a href="{{ "/" | relURL }}">
   <div class="logo">
-    <span data-decrypt>{{ $.Site.Params.Logo.logoText }}</span>
+    <span data-decrypt>{{ hugo.Data.site.name }}</span>
   </div>
 </a>
-{{ with $.Site.Params.subtitle }}<span class="tagline">// {{ . }}</span>{{ end }}
+{{ with hugo.Data.site.tagline }}<span class="tagline">// {{ partial "md.html" . }}</span>{{ end }}
 {{ end }}

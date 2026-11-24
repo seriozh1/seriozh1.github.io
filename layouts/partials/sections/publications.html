@@ -1,0 +1,22 @@
+{{/* Section "publications" of the home page. Shown when "publications" is in the sections list of data/site.yaml and has content. */}}
+{{ $p := hugo.Data.site }}{{ $work := hugo.Data.work.items }}
+  {{ $pubs := slice }}
+  {{ range $work }}{{ if in ($p.publications.types | default (slice "paper" "blog post" "thesis")) .type }}{{ $pubs = $pubs | append . }}{{ end }}{{ end }}
+  {{ with $pubs }}
+  <section id="publications">
+    <h2>{{ partial "section-title.html" "publications" }}</h2>
+    <ul class="entries">
+      {{ range $i, $w := sort . "date" "desc" }}
+        <li class="entry">
+          <div class="entry__head">
+            <span class="entry__what">{{ if .url }}<a href="{{ .url }}">{{ .title }}</a>{{ else }}{{ .title }}{{ end }}</span>
+            <span class="entry__when">{{ substr (.date | default "") 0 4 }}</span>
+          </div>
+          {{ with .authors }}<div class="entry__sub">{{ . | markdownify }}</div>{{ end }}
+          {{ with .venue }}<div class="entry__sub"><em>{{ . }}</em></div>{{ end }}
+          {{ partial "item-links.html" (dict "item" . "id" (printf "p%d" $i)) }}
+        </li>
+      {{ end }}
+    </ul>
+  </section>
+  {{ end }}

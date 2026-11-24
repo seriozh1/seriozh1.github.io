@@ -1,0 +1,11 @@
+{{/* Section "teaching" of the home page. Shown when "teaching" is in the sections list of data/site.yaml and has content. */}}
+{{ $roles := hugo.Data.experience.items }}
+{{ $list := where $roles "category" "teaching" }}
+{{ with $list }}
+  <section id="teaching">
+    <h2>{{ partial "section-title.html" "teaching" }}</h2>
+    <ul class="entries">
+      {{ range . }}{{ partial "role.html" . }}{{ end }}
+    </ul>
+  </section>
+{{ end }}

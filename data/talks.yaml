@@ -1,0 +1,36 @@
+last_updated: "2026-11-23"
+data_collected: "2026-11-22 to 2026-11-23"
+items:
+  - date: "2026-11-05"
+    venue: "What Just Happened in AI, and What Can We Do?"
+    title: "What just happened in AI, and how you can get involved"
+    type: opening talk
+    event: "Helsinki; organized by me"
+    links:
+      - { name: event, url: "https://luma.com/7qjkikxw" }
+
+  - date: "2026-10-31"
+    venue: "Maths for AI Safety Workshop (SAIGE / Safe AI Germany), Universitätsclub Bonn"
+    title: "Does Thinking Longer Make LLMs Worse? A Martingale Test for Belief Entrenchment"
+    type: lightning talk
+    event: "Bonn, 30 Oct - 1 Nov 2026"
+    links:
+      - { name: workshop, url: "https://safeaigermany.org/maths-workshop" }
+      - { name: martingale score paper, url: "https://arxiv.org/abs/2512.02914" }
+
+  - date: "2025-12-08"
+    venue: "SPAR Poster Session"
+    title: "Test Time Inverse Scaling Arises from Belief Entrenchment"
+    type: poster
+
+  - date: "2025-12-03"
+    venue: "University of Helsinki, DATA15001 Introduction to AI lecture"
+    title: "Kaggle Competition, and AI Safety intro"
+    type: guest lecture
+
+  - date: "2024-02"
+    venue: "LUT University research seminar"
+    title: "Development of a Metric for Robust Model Evaluation with Noise Added to Test Data"
+    type: research seminar talk
+    links:
+      - { name: slides, url: "https://drive.google.com/file/d/1fSXULqQhKexFD9hwsd1E7U75g3YXqMTW/view" }
