@@ -23,7 +23,15 @@
     </div>
     <div class="hero__text">
       <div class="hero__bio">
-        {{ range $p.bio }}<p>{{ partial "md.html" . }}</p>{{ end }}
+        {{/* Each bio block: an optional "heading" (shown like "// about") and its "text" paragraphs. A plain string is one paragraph. */}}
+        {{ range $p.bio }}
+          {{ if reflect.IsMap . }}
+            {{ with .heading }}<h3 class="hero__sub">{{ . }}</h3>{{ end }}
+            {{ range .text }}<p>{{ partial "md.html" . }}</p>{{ end }}
+          {{ else }}
+            <p>{{ partial "md.html" . }}</p>
+          {{ end }}
+        {{ end }}
       </div>
       {{ with $p.buttons }}
       <p class="cta">

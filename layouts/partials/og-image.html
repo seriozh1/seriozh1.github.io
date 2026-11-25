@@ -3,7 +3,7 @@
 {{ $p := hugo.Data.site }}
 {{ $bold := resources.Get "fonts/FiraCode-Bold.ttf" }}
 {{ $reg := resources.Get "fonts/FiraCode-Regular.ttf" }}
-{{ $accent := "#5ccfe6" }}{{ $muted := "#838b92" }}
+{{ $accent := "#5ccfe6" }}{{ $muted := "#d3dde6" }}
 {{ $photo := (resources.Get $p.photo).Resize "250x250 q90" }}
 {{ $f := slice (images.Overlay $photo 88 188) }}
 {{ $f = $f | append (images.Text "0x00" (dict "font" $reg "size" 22 "color" $accent "x" 80 "y" 72)) }}
