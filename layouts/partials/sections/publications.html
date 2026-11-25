@@ -9,11 +9,14 @@
       {{ range $i, $w := sort . "date" "desc" }}
         <li class="entry">
           <div class="entry__head">
-            <span class="entry__what">{{ if .url }}<a href="{{ .url }}">{{ .title }}</a>{{ else }}{{ .title }}{{ end }}</span>
-            <span class="entry__when">{{ substr (.date | default "") 0 4 }}</span>
+            <span class="entry__what entry__title">{{ if .url }}<a href="{{ .url }}">{{ .title }}</a>{{ else }}{{ .title }}{{ end }}</span>
           </div>
-          {{ with .authors }}<div class="entry__sub">{{ . | markdownify }}</div>{{ end }}
-          {{ with .venue }}<div class="entry__sub"><em>{{ . }}</em></div>{{ end }}
+          {{ with .authors }}<div class="entry__sub entry__authors">{{ partial "authors.html" . }}</div>{{ end }}
+          {{/* One meta line: "venue, year" (the year is left out when the venue already contains it) */}}
+          {{ $year := substr (.date | default "") 0 4 }}
+          {{ $meta := .venue | default "" }}
+          {{ if and $year (not (strings.Contains $meta $year)) }}{{ $meta = cond (eq $meta "") $year (printf "%s, %s" $meta $year) }}{{ end }}
+          {{ with $meta }}<div class="entry__sub">{{ . }}</div>{{ end }}
           {{ partial "item-links.html" (dict "item" . "id" (printf "p%d" $i)) }}
         </li>
       {{ end }}

@@ -92,5 +92,5 @@ items:
     authors: "X. Zhou, P. K. Das, V. Orso, **S. Smirnov**, P. Pluchino, R. Kanth, A. Happonen, A. Zuniga, L. Ruotsalainen, N. Ravaja, A. Bellucci, D. Kirsh, L. Gamberini, M. Mathioudakis, J. Kangasharju, P. Marttinen, S. Tarkoma, P. Nurmi, G. Jacucci"
     summary: "Proposes an extended interaction framework that combines the Smart Factory metaverse, digital twins and embodied AI assistants for multi-workstation co-bot collaboration; presents a Smart Factory digital-twin prototype, an LLM-powered embodied conversational agent, and a Scopus mini-review of embodied conversational agents in manufacturing (87 records, 14 studies)."
     links:
-      - { name: proceedings (pdf), url: "https://catedrametaverso.ua.es/wp-content/uploads/2025/06/Proceedings-of-the-Congress.pdf" }
+      - { name: proceedings, url: "https://catedrametaverso.ua.es/wp-content/uploads/2025/06/Proceedings-of-the-Congress.pdf" }
       - { name: congress, url: "https://metaversechair.ua.es/ii-international-congress-a-metaverse-for-the-good-part-i-ii-emrn-conference-exploring-the-intersection-of-ai-and-the-metaverse/" }

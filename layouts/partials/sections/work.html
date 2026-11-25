@@ -25,7 +25,7 @@
             {{ with .presentation }}<span class="badge badge--highlight">{{ . }}</span>{{ end }}
           </div>
           {{ with .summary }}<p class="work__summary">{{ partial "md.html" . }}</p>{{ end }}
-          {{ with .authors }}<p class="work__authors">{{ . | markdownify }}</p>{{ end }}
+          {{ with .authors }}<p class="work__authors">{{ partial "authors.html" . }}</p>{{ end }}
           {{ partial "item-links.html" (dict "item" . "id" (printf "w%d" $i)) }}
         </div>
       </article>

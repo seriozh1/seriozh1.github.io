@@ -1,0 +1,15 @@
+{{/* Author list (Markdown, comma-separated, yourself in **bold**). Lists of more than 6 are shortened to
+     the first authors up to and including you, then "…, last author (N authors)". */}}
+{{ $parts := split . ", " }}
+{{ $n := len $parts }}
+{{ $out := . }}
+{{ if gt $n 6 }}
+  {{ $me := 0 }}
+  {{ range $i, $a := $parts }}{{ if strings.Contains $a "**" }}{{ $me = $i }}{{ end }}{{ end }}
+  {{ $keep := cond (lt (add $me 1) 3) 3 (add $me 1) }}
+  {{ if lt $keep (sub $n 1) }}
+    {{ $out = printf "%s, …, %s (%d authors)" (delimit (first $keep $parts) ", ") (index $parts (sub $n 1)) $n }}
+  {{ end }}
+{{ end }}
+{{ $html := $out | markdownify }}
+{{ return $html }}
