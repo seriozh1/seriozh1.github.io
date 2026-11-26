@@ -117,6 +117,24 @@ pre {
   border: 1px solid var(--rule);
 }
 
+/* Phone menu: wide enough for each item on one line, comfortable tap targets */
+.menu--mobile .menu__dropdown {
+  width: max-content;
+  min-width: 220px;
+  padding: 8px 18px;
+}
+
+.menu--mobile .menu__dropdown li {
+  margin: 0;
+  padding: 2px 0;
+}
+
+.menu--mobile .menu__dropdown a {
+  color: var(--foreground);
+  text-decoration: none;
+  white-space: pre;
+}
+
 /* Section headings: hex-indexed h2s on every page */
 .post-content,
 .index-content {
