@@ -6,7 +6,7 @@ tagline: "==AI Safety Research Scientist | AI Character Evaluation=="
 description: "AI safety researcher evaluating the character, values and behavior of frontier AI models."
 keywords: ["AI safety", "AI character evaluation", "AI alignment", "LLM evaluations", "machine learning"]
 
-job_title: "Founding Research Scientist"
+job_title: "Research Scientist"
 affiliations:
   - { name: "Cedar Research", url: "https://cedarresearch.org" }
   - { name: "University of Helsinki", url: "https://www.helsinki.fi/en" }
@@ -33,7 +33,7 @@ links:
 bio:
   - heading: "about"
     text:
-      - "I'm a Founding Research Scientist at [Cedar Research](https://cedarresearch.org) and a PhD student at the [University of Helsinki](https://www.helsinki.fi/en) (advised by [Prof. Giulio Jacucci](https://scholar.google.com/citations?user=cmpzu9sAAAAJ&hl=en))."
+      - "I'm a Research Scientist at [Cedar Research](https://cedarresearch.org) and a PhD student at the [University of Helsinki](https://www.helsinki.fi/en) (advised by [Prof. Giulio Jacucci](https://scholar.google.com/citations?user=cmpzu9sAAAAJ&hl=en))."
       - "I work on AI character evaluation. As models gain autonomy and grow harder to monitor, their character becomes a key lever for safety. I measure the character and values of frontier models, test whether they predict misaligned behavior such as deception, and stress-test them under pressure."
   - heading: "previously"
     text:
