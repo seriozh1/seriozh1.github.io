@@ -46,7 +46,7 @@ bio:
 
 buttons:
   - { name: "Let's Talk", url: "mailto:contact@sergeismirnov.com"}
-  - { name: "CV", url: "/cv.pdf", style: "ghost"  }
+  - { name: "CV", url: "/CV_Smirnov.pdf", style: "ghost" }
   - { name: "Anonymous Feedback", url: "https://forms.gle/r6ECowPXbk9MUTfLA", style: "ghost" }
 
 
