@@ -898,3 +898,13 @@ mark.todo {
 .work__authors {
   font-size: 0.88em;
 }
+
+/* Motto under the tagline */
+.quote {
+  margin: 0 0 20px;
+  font-style: italic;
+}
+
+.quote.translated {
+  color: var(--accent);
+}

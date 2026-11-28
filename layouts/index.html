@@ -20,6 +20,8 @@
     <div class="hero__head">
       <h1 class="hero__name"><span data-decrypt>{{ $p.name }}</span></h1>
       {{ with $p.tagline }}<p class="hero__tagline">// {{ partial "md.html" . }}</p>{{ end }}
+      {{/* Motto under the tagline, from "quote" in data/site.yaml: on hover or tap it decrypts into "translation (author)" (static/js/ice.js) */}}
+      {{ with $p.quote }}<p class="quote" data-translation="{{ .translation }}{{ with .author }} ({{ . }}){{ end }}">{{ .text }}</p>{{ end }}
     </div>
     <div class="hero__text">
       <div class="hero__bio">

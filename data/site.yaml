@@ -50,6 +50,11 @@ buttons:
   - { name: "Anonymous Feedback", url: "https://forms.gle/r6ECowPXbk9MUTfLA", style: "ghost" }
 
 
+quote:
+  text: "Satis eloquentiae, sapientiae parum."
+  translation: "Enough eloquence, too little wisdom."
+  author: "Sallust"
+
 sections: ["work", "publications", "teaching", "talks", "awards", "service"]
 
 work:
